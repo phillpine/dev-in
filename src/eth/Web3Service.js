@@ -192,9 +192,12 @@ export default class Web3Service extends PrivateService {
         'sendTransaction'
       ]),
       {
-        getAccounts: () => this.get('accounts').listAccounts().map(account => {
-          return account.address;
-        }),
+        getAccounts: () =>
+          this.get('accounts')
+            .listAccounts()
+            .map(account => {
+              return account.address;
+            }),
         subscribe: (...args) => this._web3.eth.subscribe(...args)
       }
     );
@@ -259,10 +262,13 @@ export default class Web3Service extends PrivateService {
     } else {
       this._interval = setInterval(async () => {
         const blockNumber = await this._web3.eth.getBlockNumber();
-        if (blockNumber !== this._currentBlock) {
-          this._updateBlockNumber(blockNumber);
+        if (this._currentBlock < blockNumber) {
+          for (let i = this._currentBlock; i < blockNumber; i++) {
+            this._updateBlockNumber(i);
+            this._currentBlock++;
+          }
         }
-      }, 10);
+      }, 100);
     }
   }
 
@@ -312,10 +318,10 @@ export default class Web3Service extends PrivateService {
   }
 
   _removeBlockUpdates() {
-    if(this.usingWebsockets()) {
+    if (this.usingWebsockets()) {
       this.unsubscribeNewBlocks();
     } else {
-      clearInterval(this._interval);
+      // clearInterval(this._interval);
     }
   }
   _installCleanUpHooks() {

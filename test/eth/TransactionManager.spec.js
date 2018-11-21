@@ -37,8 +37,8 @@ test('reuse the same web3 and log service in test services', () => {
 
   // Removing _web3 object as blockTrackerTimestamp varies based on
   // milli/nanoseconds between code execution
-  const _tx = delete {... services.txMgr.get('web3')._web3 };
-  const _ct = delete {... services.contract.get('web3')._web3 };
+  const _tx = delete { ...services.txMgr.get('web3')._web3 };
+  const _ct = delete { ...services.contract.get('web3')._web3 };
   expect(_tx).toBe(_ct);
   expect(services.txMgr.get('log')).toBe(
     services.contract.get('web3').get('log')
