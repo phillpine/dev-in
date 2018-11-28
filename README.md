@@ -1,4 +1,4 @@
-# Dai.js
+# MASH.dev-in
 
 [![GitHub License][license]][license-url]
 [![NPM][npm]][npm-url]
@@ -6,11 +6,11 @@
 [![Coverage Status][cover]][cover-url]
 
 
-**Dai.js** is a JavaScript library that makes it easy to build applications on top of [MakerDAO][makerdao]'s Dai Stablecoin System. You can use Maker's contracts to open Collateralized Debt Positions, withdraw loans in Dai, trade tokens on OasisDEX, and more.
+**MASH.dev-in** is a dectralized Stablecoin System. You can use it  to open Collateralized Debt Positions, withdraw loans, trade tokens  and more.
 
-The library features a pluggable, service-based architecture, which allows users maximal control when integrating the Maker functionality into existing infrastructures. It also includes convenient configuration presets for out-of-the-box usability, a powerful smart contract state inspector, and support for both front-end and back-end applications.
+The library features a pluggable, service-based architecture, which allows users maximal control when integrating the functionality into existing infrastructures. It also includes convenient configuration presets for out-of-the-box usability, a powerful smart contract state inspector, and support for both front-end and back-end applications.
 
-Maker's entire suite of contracts will eventually be accessible through this library—including the DAO governance and the upcoming multi-collateral release—but functionality is limited in the current alpha version to the following areas:
+MASH suite of contracts will eventually be accessible through this library—including the DAO governance and the upcoming multi-collateral release—but functionality is limited in the current alpha version to the following areas:
 
 * Opening and shutting CDPs
 * Locking and unlocking collateral
